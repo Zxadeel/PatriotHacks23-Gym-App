@@ -6,7 +6,7 @@ import TimerScreen from './src/screens/TimerScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator(); //intialize screen navigator
 
 export default function App() {
   return (
@@ -27,3 +27,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
