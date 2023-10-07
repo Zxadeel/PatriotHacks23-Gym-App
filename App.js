@@ -5,9 +5,9 @@ import { createStackNavigator} from '@react-navigation/stack';
 import TimerScreen from './src/screens/TimerScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
+// import * as SplashScreen from 'expo-splash-screen';
 
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 const Stack = createStackNavigator();
 
 export default function App() {

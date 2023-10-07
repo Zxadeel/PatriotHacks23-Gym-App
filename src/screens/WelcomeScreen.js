@@ -1,18 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
 import { TextInput,View,Text,TouchableOpacity,StyleSheet,ImageBackground, Image } from "react-native";
-import { useFonts, Inter_900Black } from '@expo-google-fonts/inter'
-
-
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function WelcomeScreen({navigation}) {
-  let [fontsLoaded, fontError] = useFonts({
-    Inter_900Black,
-  });
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
 
     const [userInfo, setUserInfo] = useState({
       name: '',
@@ -41,32 +32,36 @@ export default function WelcomeScreen({navigation}) {
 
     return (
       <View style={styles.container} >
-        <ImageBackground source={require('../../assets/images/background3.jpg')}  style={{flex:1, justifyContent:'center', resizeMode:"stretch",}}>
-          <Image source={require('../../assets/images/Title.png')} style={{resizeMode:'center', justifyContent: 'center', width: 600, height:30, margin:20}} />
-          <View style={styles.welcome}>
-            <Text style={styles.title}>WELCOME TO PIXEL GYM</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Name"
-              onChangeText={handleNameChange}
-              value={userInfo.name}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Gender"
-              onChangeText={handleGenderChange}
-              value={userInfo.gender}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Age"
-              onChangeText={handleAgeChange}
-              value={userInfo.age}
-            />
-            <TouchableOpacity style={styles.button} onPress={handleStartPress}>
-              <Text style={styles.buttonText}>START</Text>
-            </TouchableOpacity>
-          </View>
+        <ImageBackground source={require('../../assets/images/background3.jpg')}  
+          style={{flex:1, justifyContent:'center', resizeMode:"stretch"}}>
+            <LinearGradient
+              colors={['rgb(130, 87, 129)', 'transparent']}
+              style={{position:'absolute', left:0,right:0,bottom:0,top:0,}}/>
+            {/* <Image source={require('../../assets/images/Title.png')} style={{resizeMode:'center', justifyContent: 'center', width: 600, height:30, margin:20}} /> */}
+            <View style={styles.welcome}>
+              <Text style={styles.title}>WELCOME TO PIXEL GYM</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Name"
+                onChangeText={handleNameChange}
+                value={userInfo.name}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Gender"
+                onChangeText={handleGenderChange}
+                value={userInfo.gender}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Age"
+                onChangeText={handleAgeChange}
+                value={userInfo.age}
+              />
+              <TouchableOpacity style={styles.button} onPress={handleStartPress}>
+                <Image source={require('../../assets/images/Startbtn.png')} />
+              </TouchableOpacity>
+            </View>
         </ImageBackground>   
       </View>
 
@@ -87,20 +82,23 @@ styles = StyleSheet.create({
   title: {
     fontSize: 30,
     margin: 10,
-    marginBottom: 300,
+    marginBottom: 200,
     // fontFamily: 'Roboto',
-    // fontWeight: '900',
+    fontWeight: '900',
     color: "white",
-    fontFamily: 'Inter_900Black',
+    fontSize: 30,
   },
   button:{
-    padding:5,
     // fontFamily: "PixelBoy"
+    alignSelf:'center',
+    marginTop: 30,
     
   },
   input:{
-    padding: 5,
+    padding: 8,
     backgroundColor: 'white',
     fontSize: 20,
+    margin: 20,
+
   }
 });
