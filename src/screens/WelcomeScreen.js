@@ -1,4 +1,6 @@
-const WelcomeScreen = ({ navigation }) => {
+
+
+export default function WelcomeScreen({navigation}) {
     // Define a state object that holds the user's input for name, gender, and age
     const [userInfo, setUserInfo] = useState({
       name: '',
