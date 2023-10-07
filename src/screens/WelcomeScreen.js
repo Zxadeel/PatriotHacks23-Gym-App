@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput,View,Text,TouchableOpacity, } from "react-native";
+import { TextInput,View,Text,TouchableOpacity,StyleSheet } from "react-native";
 
 
 export default function WelcomeScreen({navigation}) {
@@ -56,3 +56,20 @@ export default function WelcomeScreen({navigation}) {
       </View>
     );
   };
+
+
+styles = StyleSheet.create({
+  container:{
+    flex:1,
+    justifyContent: "center",
+    alignSelf: 'center',
+  },
+  button:{
+    padding:5,
+    fontFamily: ""
+    
+  },
+  input:{
+    padding: 5
+  }
+});
