@@ -1,14 +1,26 @@
-// Import necessary modules from React and React Native
-import React, { useState, useEffect } from 'react';
+// TimerScreen.js
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Timer from '../components/Timer';
+import Timer from '../components/Timer';  // Ensure the path to Timer is correct
 
-// Define a TimerScreen component
-export default function TimerScreen () {
+export default function TimerScreen() {
   return(
-    <View>
-      <Text>hello</Text>
-      <Timer/>
+    <View style={styles.container}>
+      <Text style={styles.timeText}>hello</Text>
+      <Timer />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  timeText: {
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+});
