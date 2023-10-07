@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { TextInput,View,Text,TouchableOpacity, } from "react-native";
 
 
 export default function WelcomeScreen({navigation}) {
