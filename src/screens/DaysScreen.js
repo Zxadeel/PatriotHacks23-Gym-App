@@ -1,33 +1,54 @@
-import React from 'react';
-import { View, Alert, Image, TouchableOpacity } from 'react-native';
-const App = () => {
-  const handleRange23 = () => {
-    Alert.alert("Button pressed!");
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+const DaysScreen = ({ route }) => {
+  const navigation = useNavigation();
+  const { selectedMuscles, liftingLevel } = route.params;
+  const [commitment, setCommitment] = useState(null);
+
+  const handleButtonPress = (days) => {
+    setCommitment(days);
   };
 
-  const handleRange46 = () => {
-    Alert.alert("Button pressed!");
-  };
-
-  const handleNumber7 = () => {
-    Alert.alert("Button pressed!");
+  const handleNext = () => {
+    if (commitment !== null) {
+      navigation.navigate('WorkoutCreation', {
+        selectedMuscles: selectedMuscles, // You will pass the actual value of selected muscles here
+        liftingLevel: liftingLevel, // Change this to the actual lifting level
+        commitment: commitment,
+      });
+    }
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <TouchableOpacity onPress={handleRange23} style={{ marginTop: 20 }}>
-        <Image source={require('./../../assets/button23.png')} style={{ width: 100, height: 100 }} />
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={handleRange46} style={{ marginTop: 20 }}>
-        <Image source={require('./../../assets/button67.png')} style={{ width: 100, height: 100 }} />
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={handleNumber7} style={{ marginTop: 20 }}>
-        <Image source={require('./../../assets/button7.png')} style={{ width: 100, height: 100 }} />
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <Text style={styles.heading}>How many days a week can you work out?</Text>
+      <View style={styles.buttonContainer}>
+        <Button title="2-3" onPress={() => handleButtonPress(3)} />
+        <Button title="4-6" onPress={() => handleButtonPress(5)} />
+        <Button title="7" onPress={() => handleButtonPress(7)} />
+      </View>
+      <Button title="Next" onPress={handleNext} />
     </View>
   );
 };
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 50, // Adjust as needed for the top padding
+  },
+  heading: {
+    fontSize: 24,
+    marginBottom: 10,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+});
+
+export default DaysScreen;

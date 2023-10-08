@@ -27,7 +27,7 @@ const MuscleSelect = ({ route }) => {
     setSelectedMuscles([]);
     console.log('Confirmed Muscles:', selectedMuscles);
     console.log('Lifting Level:',liftingLevel);
-    navigation.navigate('WorkoutCreation', { selectedMuscles, liftingLevel });
+    navigation.navigate('DaysScreen', { selectedMuscles, liftingLevel });
   };
 
   return (
