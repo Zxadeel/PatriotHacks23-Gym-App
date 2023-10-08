@@ -10,7 +10,7 @@ const NewOrExperienced = () => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ADD8E6' }}>
       <Text>How new are you to lifting?</Text>
 
       {/* Wrap buttons and images together */}
