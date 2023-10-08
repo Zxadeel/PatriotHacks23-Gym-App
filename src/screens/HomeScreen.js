@@ -1,10 +1,14 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Image, StyleSheet, View,Text, ImageBackground, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+
 
 
 export default function HomeScreen({data}) {
+    const navigation = useNavigation();
+
     const handleStartPress = () => {
-        navigation.navigate('NextScreen', { userInfo });
+        navigation.navigate('TimerScreen', { });
       };
 
     return (

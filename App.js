@@ -29,7 +29,7 @@ export default function App() {
           <Stack.Screen name = "MuscleSelect" component={MuscleSelect}/>
           <Stack.Screen name = "WorkoutCreation" component={WorkoutCreation}/>
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Timer Screen" component={TimerScreen} />
+          <Stack.Screen name="TimerScreen" component={TimerScreen} />
         </Stack.Navigator>
       </NavigationContainer>
   );
