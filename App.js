@@ -23,10 +23,10 @@ export default function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name = "NewOrExperienced" component={NewOrExperienced}/>
           <Stack.Screen name = "MuscleSelect" component={MuscleSelect}/>
           <Stack.Screen name = "WorkoutCreation" component={WorkoutCreation}/>
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Timer Screen" component={TimerScreen} />
 
         </Stack.Navigator>
