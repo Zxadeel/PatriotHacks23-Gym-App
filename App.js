@@ -7,8 +7,8 @@ import WelcomeScreen from './src/screens/WelcomeScreen';
 import { useFonts } from 'expo-font';
 // import * as SplashScreen from 'expo-splash-screen';
 
-// SplashScreen.preventAutoHideAsync();
-const Stack = createStackNavigator();
+
+const Stack = createStackNavigator(); //intialize screen navigator
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,7 +19,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          {/* <Stack.Screen name="Timer Screen" component={TimerScreen} /> */}
+          <Stack.Screen name="Timer Screen" component={TimerScreen} />
         </Stack.Navigator>
       </NavigationContainer>
   );
@@ -33,3 +33,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
