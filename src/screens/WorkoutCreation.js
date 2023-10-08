@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const WorkoutCreation = ({ route }) => {
     const navigation = useNavigation();
-    const { selectedMuscles, liftingLevel, commitment } = route.params;
+    const { selectedMuscles, liftingLevel, commitment, userInfo } = route.params;
     const [routine, setRoutine] = useState(null);
 
     // Determine workout routine based on commitment level
@@ -29,7 +29,7 @@ const WorkoutCreation = ({ route }) => {
 
     const handleNext = () => {
         setRoutine(getWorkoutRoutine()); // Update routine with the workout routine
-        navigation.navigate('Home', { routine }); // Pass routine to Home screen
+        navigation.navigate('Home', { routine, userInfo }); // Pass routine to Home screen
     };
 
     return (

@@ -8,8 +8,8 @@ const MuscleSelect = ({ route }) => {
   const [selectedMuscles, setSelectedMuscles] = useState([]);
   const [confirmedMuscles, setConfirmedMuscles] = useState([]);
   const navigation = useNavigation(); // Access navigation
-  const { liftingLevel } = route.params;
-
+  const { liftingLevel, userInfo } = route.params;
+  console.log(userInfo)
 
 
   const handleMuscleSelection = (muscle) => {
@@ -27,7 +27,7 @@ const MuscleSelect = ({ route }) => {
     setSelectedMuscles([]);
     console.log('Confirmed Muscles:', selectedMuscles);
     console.log('Lifting Level:',liftingLevel);
-    navigation.navigate('DaysScreen', { selectedMuscles, liftingLevel });
+    navigation.navigate('DaysScreen', { selectedMuscles, liftingLevel, userInfo });
   };
 
   return (

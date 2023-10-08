@@ -4,7 +4,6 @@ import { TextInput, View, Text, TouchableOpacity, StyleSheet, ImageBackground, I
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function WelcomeScreen({ navigation }) {
-
   const [userInfo, setUserInfo] = useState({
     name: '',
     gender: '',
@@ -20,6 +19,7 @@ export default function WelcomeScreen({ navigation }) {
   };
 
   const handleAgeChange = (text) => {
+    // console.log(userInfo)
     setUserInfo({ ...userInfo, age: text });
   };
 

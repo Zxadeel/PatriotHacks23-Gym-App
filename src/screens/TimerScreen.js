@@ -26,7 +26,6 @@ export default function TimerScreen({ data }) {
       <ImageBackground source={require('../../assets/images/background1.webp')}>
         <LinearGradient colors={['rgb(240, 241, 160)', 'transparent']} style={{ position: 'absolute', left: 0, right: 0, bottom: 0, top: 0 }} />
         <Timer />
-        <Button title="Stop" onPress={handleStop} />
         <Text style={styles.set}>Next Workout:{data}</Text>
         <Image source={require('../../assets/images/catworkout.png')} />
       </ImageBackground>

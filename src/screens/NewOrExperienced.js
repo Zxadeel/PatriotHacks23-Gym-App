@@ -2,12 +2,18 @@ import React from 'react';
 import { View, Text, Button, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const NewOrExperienced = () => {
+const NewOrExperienced = ({ route }) => {
+  const { userInfo } = route.params;
   const navigation = useNavigation();
 
   const handleSelection = (level) => {
-    navigation.navigate('MuscleSelect', { liftingLevel: level });
+    console.log(userInfo)
+    navigation.navigate('MuscleSelect', {
+      liftingLevel: level,
+      userInfo: userInfo, 
+    });
   };
+  
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ADD8E6' }}>

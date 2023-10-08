@@ -3,10 +3,13 @@ import { Image, StyleSheet, View,Text, ImageBackground, TouchableOpacity } from 
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react'; // Import useState
 
-export default function HomeScreen({data}) {
+export default function HomeScreen({route}) {
     const navigation = useNavigation();
     const [xp, setXp] = useState(0); // Step 1: Define XP state
     const maxXP = 100; // Step 1: Define maximum XP
+    const { routine, userInfo } = route.params;
+
+    // console.log(userInfo.name)
 
     const handleStartPress = () => {
         navigation.navigate('TimerScreen', {});
@@ -21,7 +24,11 @@ export default function HomeScreen({data}) {
                 colors={['rgb(130, 87, 129)', 'transparent']}
                 style={{position:'absolute', left:0,right:0,bottom:0,top:0,}}/>
                 <View style={{flex: 1, flexDirection: "row", alignItems:'center', marginBottom: 5}}>
-                    <Image source={require('../../assets/images/character.png')} style={styles.character}/>
+                    <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', }}>
+                        <Image source={require('../../assets/images/character.png')} style={styles.character}/>
+                        <Text style={{fontWeight:'900', fontSize:30, color: 'white', fontFamily:'', marginBottom: 15}}>{userInfo["name"]}</Text>
+                    </View>
+                    
                     <View style={{justifyContent: 'center', flexDirection: 'column'}}>
                         <View style={styles.surround}>
                             <Text style={{fontSize:40, fontWeight: '900', alignSelf: 'center'}}>0</Text>
@@ -76,6 +83,7 @@ styles = StyleSheet.create({
         backgroundColor: 'rgba(77, 182, 248, 0.7)',
         padding: 20,
         margin: 10,
+        borderRadius: 5
     },
     surroundother: {
         // flex: 1,
@@ -84,6 +92,7 @@ styles = StyleSheet.create({
         backgroundColor: 'rgba(77, 182, 248, 0.7)',
         padding: 20,
         margin: 10,
+        borderRadius: 5,
     },
     text: {
         fontSize: 20,

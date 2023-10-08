@@ -1,14 +1,17 @@
 // Timer.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 export default function Timer() {
     const [seconds, setSeconds] = useState(0);
+    const [timerId, setTimerId] = useState(null);
+
 
     useEffect(() => {
       const interval = setInterval(() => {
         setSeconds(seconds => seconds + 1);
       }, 1000);
+      setTimerId(interval);
 
       return () => clearInterval(interval); // Cleanup on component unmount
     }, []);
@@ -19,9 +22,14 @@ export default function Timer() {
       return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
+    const handleStop = () => {
+      clearInterval(timerId)
+    }
+
     return (
       <View style={styles.container}>
         <Text style={styles.timer}>{formatTime(seconds)}</Text>
+        <Button title="Stop" onPress={handleStop} />
       </View>
     );
 }

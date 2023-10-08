@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const DaysScreen = ({ route }) => {
   const navigation = useNavigation();
-  const { selectedMuscles, liftingLevel } = route.params;
+  const { selectedMuscles, liftingLevel, userInfo } = route.params;
   const [commitment, setCommitment] = useState(null);
 
   const handleButtonPress = (days) => {
@@ -17,6 +17,7 @@ const DaysScreen = ({ route }) => {
         selectedMuscles: selectedMuscles, // You will pass the actual value of selected muscles here
         liftingLevel: liftingLevel, // Change this to the actual lifting level
         commitment: commitment,
+        userInfo: userInfo
       });
     }
   };
