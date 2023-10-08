@@ -10,9 +10,7 @@ import MuscleSelect from './src/screens/MuscleSelect';
 import WorkoutCreation from './src/screens/WorkoutCreation'; 
 import NewOrExperienced from './src/screens/NewOrExperienced';
 import HomeScreen from './src/screens/HomeScreen';
-
 import { useFonts } from 'expo-font';
-import HomeScreen from './src/screens/HomeScreen';
 
 
 
@@ -25,7 +23,6 @@ export default function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Home" component={HomeScreen}/>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name = "NewOrExperienced" component={NewOrExperienced}/>
           <Stack.Screen name="DaysScreen" component={DaysScreen} />
