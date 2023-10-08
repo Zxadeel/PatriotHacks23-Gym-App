@@ -8,6 +8,7 @@ import WelcomeScreen from './src/screens/WelcomeScreen';
 import MuscleSelect from './src/screens/MuscleSelect'; 
 import WorkoutCreation from './src/screens/WorkoutCreation'; 
 import NewOrExperienced from './src/screens/NewOrExperienced';
+
 import { useFonts } from 'expo-font';
 
 
