@@ -1,13 +1,13 @@
-// TimerScreen.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Timer from '../components/Timer';  // Ensure the path to Timer is correct
+import Timer from '../components/Timer'; 
 
-export default function TimerScreen() {
+export default function TimerScreen({data}) {
   return(
     <View style={styles.container}>
-      <Text style={styles.timeText}>hello</Text>
-      <Timer />
+      <Timer/>
+      <Text style={styles.set}>Next Workout:{data}</Text>
+
     </View>
   );
 }
@@ -17,10 +17,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
-  timeText: {
-    fontSize: 36,
-    fontWeight: 'bold',
-  },
+  set: {
+    flex: 1,
+    fontSize: 30,
+    fontWeight: '900',
+    alignSelf: 'center'
+    
+  }
+
 });
