@@ -10,43 +10,41 @@ import MuscleSelect from './src/screens/MuscleSelect';
 import WorkoutCreation from './src/screens/WorkoutCreation'; 
 import NewOrExperienced from './src/screens/NewOrExperienced';
 import { useFonts } from 'expo-font';
+import HomeScreen from './src/screens/HomeScreen';
 
 
 
-Icon.loadFont();
+// Icon.loadFont();
 
 const Stack = createStackNavigator(); //intialize screen navigator
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    'PixelBoy' : require('./assets/fonts/PixelBoy.ttf'),
-  });
- 
+
   return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Home" component={HomeScreen}/>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="How many days a week" component={DaysScreen} />
           <Stack.Screen name = "NewOrExperienced" component={NewOrExperienced}/>
           <Stack.Screen name = "MuscleSelect" component={MuscleSelect}/>
           <Stack.Screen name = "WorkoutCreation" component={WorkoutCreation}/>
           <Stack.Screen name="Timer Screen" component={TimerScreen} />
-
         </Stack.Navigator>
       </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontFamily: 'Pixellari', // Replace with the actual font family name
-    fontSize: 16, // Adjust the font size as needed
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   text: {
+//     fontFamily: 'Pixellari', // Replace with the actual font family name
+//     fontSize: 16, // Adjust the font size as needed
+//   },
+// });
 
 
