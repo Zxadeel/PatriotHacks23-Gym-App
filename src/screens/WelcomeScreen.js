@@ -26,7 +26,7 @@ export default function WelcomeScreen({navigation}) {
   
     // Define a function that navigates to the next screen when the "START" button is pressed
     const handleStartPress = () => {
-      navigation.navigate('NextScreen', { userInfo });
+      navigation.navigate('NewOrExperienced', { userInfo });
     };
 
 

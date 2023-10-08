@@ -27,8 +27,8 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          <Stack.Screen name="How many days a week" component={DaysScreen} />
           <Stack.Screen name = "NewOrExperienced" component={NewOrExperienced}/>
+          <Stack.Screen name="DaysScreen" component={DaysScreen} />
           <Stack.Screen name = "MuscleSelect" component={MuscleSelect}/>
           <Stack.Screen name = "WorkoutCreation" component={WorkoutCreation}/>
           <Stack.Screen name="Timer Screen" component={TimerScreen} />

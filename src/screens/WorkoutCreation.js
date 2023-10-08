@@ -1,8 +1,33 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const WorkoutCreation = ({ route }) => {
-    const { selectedMuscles, liftingLevel } = route.params;
+    const { selectedMuscles, liftingLevel, commitment } = route.params;
+
+    const getData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem('data');
+          return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch (e) {
+          console.log("Async Get error", e)
+        }
+      };
+
+    useEffect(() => {
+        async function saveData() {
+            data = {selectedMuscles, liftingLevel, commitment}
+            const info = JSON.stringify(data)
+            await AsyncStorage.setItem("data", info)
+            console.log(info)
+        }
+        saveData();
+
+    },[])
+    
+    
+
+    
 
     return (
         <View style={styles.container}>
@@ -11,6 +36,7 @@ const WorkoutCreation = ({ route }) => {
                 <Text key={index}>{muscle}</Text>
             ))}
             <Text style={styles.experienceLevel}>Experience Level: {liftingLevel}</Text>
+            <Text style={styles.commitment}>Experience Level: {commitment}</Text>
         </View>
     );
 };
