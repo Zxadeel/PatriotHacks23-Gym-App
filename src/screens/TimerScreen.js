@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, Button } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Timer from '../components/Timer';
+import ExerciseDisplay from '../components/ExerciseDisplay';
 
-export default function TimerScreen({ data }) {
+export default function TimerScreen({ route }) {
   const [time, setTime] = useState(0);
   const [timerId, setTimerId] = useState(null);
+  const { excersices } = route.params;
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -26,7 +28,7 @@ export default function TimerScreen({ data }) {
       <ImageBackground source={require('../../assets/images/background1.webp')}>
         <LinearGradient colors={['rgb(240, 241, 160)', 'transparent']} style={{ position: 'absolute', left: 0, right: 0, bottom: 0, top: 0 }} />
         <Timer />
-        <Text style={styles.set}>Next Workout:{data}</Text>
+        <ExerciseDisplay exercises={excersices}/>
         <Image source={require('../../assets/images/catworkout.png')} />
       </ImageBackground>
     </View>
@@ -38,12 +40,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    // justifyContent: 'center',
+    flexDirection: 'column'
+    
   },
-  set: {
-    flex: 1,
-    fontSize: 30,
-    fontWeight: '900',
-    alignSelf: 'center',
-  },
+
 });

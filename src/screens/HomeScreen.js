@@ -9,10 +9,10 @@ export default function HomeScreen({route}) {
     const maxXP = 100; // Step 1: Define maximum XP
     const { routine, userInfo } = route.params;
 
-    // console.log(userInfo.name)
+    const excersices = ['Bench Press', 'Chest Flys', 'Shoulder Press', 'Face Pulls', 'Tricep Extension']
 
     const handleStartPress = () => {
-        navigation.navigate('TimerScreen', {});
+        navigation.navigate('TimerScreen', {excersices});
     };
 
     return (
