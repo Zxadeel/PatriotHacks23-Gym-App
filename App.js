@@ -5,10 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
 import TimerScreen from './src/screens/TimerScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
+import DaysScreen from './src/screens/DaysScreen';
 import MuscleSelect from './src/screens/MuscleSelect'; 
 import WorkoutCreation from './src/screens/WorkoutCreation'; 
 import NewOrExperienced from './src/screens/NewOrExperienced';
 import { useFonts } from 'expo-font';
+
 
 
 Icon.loadFont();
@@ -23,10 +25,11 @@ export default function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
+          <Stack.Screen name="How many days a week" component={DaysScreen} />
           <Stack.Screen name = "NewOrExperienced" component={NewOrExperienced}/>
           <Stack.Screen name = "MuscleSelect" component={MuscleSelect}/>
           <Stack.Screen name = "WorkoutCreation" component={WorkoutCreation}/>
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Timer Screen" component={TimerScreen} />
 
         </Stack.Navigator>
