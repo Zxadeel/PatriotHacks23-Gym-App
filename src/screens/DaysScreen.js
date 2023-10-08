@@ -15,7 +15,7 @@ const DaysScreen = ({ route }) => {
     if (commitment !== null) {
       navigation.navigate('WorkoutCreation', {
         selectedMuscles: selectedMuscles, // You will pass the actual value of selected muscles here
-        liftingLevel: 'new', // Change this to the actual lifting level
+        liftingLevel: liftingLevel, // Change this to the actual lifting level
         commitment: commitment,
       });
     }
@@ -25,8 +25,8 @@ const DaysScreen = ({ route }) => {
     <View style={styles.container}>
       <Text style={styles.heading}>How many days a week can you work out?</Text>
       <View style={styles.buttonContainer}>
-        <Button title="2-3" onPress={() => handleButtonPress(2)} />
-        <Button title="4-6" onPress={() => handleButtonPress(4)} />
+        <Button title="2-3" onPress={() => handleButtonPress(3)} />
+        <Button title="4-6" onPress={() => handleButtonPress(5)} />
         <Button title="7" onPress={() => handleButtonPress(7)} />
       </View>
       <Button title="Next" onPress={handleNext} />
